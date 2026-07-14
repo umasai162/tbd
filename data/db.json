@@ -1,0 +1,101 @@
+{
+  "bookings": [
+    {
+      "id": "BK-5279DJ1D",
+      "type": "darshan",
+      "bookingDate": "2026-07-12T15:00:37.489Z",
+      "visitDate": "2026-07-13",
+      "status": "CONFIRMED",
+      "transactionId": "TXN-156578735",
+      "amountPaid": 300,
+      "pilgrims": [
+        {
+          "name": "UMA SAI SANKAR",
+          "age": 22,
+          "gender": "Male",
+          "idType": "Aadhaar",
+          "idNumber": "3548695746582"
+        }
+      ],
+      "details": {
+        "slot": "08:00 AM - 09:00 AM",
+        "entryType": "Special Entry"
+      }
+    },
+    {
+      "id": "BK-9831A",
+      "type": "darshan",
+      "bookingDate": "2026-07-08T10:15:30Z",
+      "visitDate": "2026-07-10",
+      "status": "CONFIRMED",
+      "transactionId": "TXN-883718290",
+      "amountPaid": 300,
+      "pilgrims": [
+        {
+          "name": "Srinivasa Rao",
+          "age": 45,
+          "gender": "Male",
+          "idType": "Aadhaar",
+          "idNumber": "112233445566"
+        }
+      ],
+      "details": {
+        "slot": "10:00 AM - 11:00 AM",
+        "entryType": "Special Entry"
+      }
+    },
+    {
+      "id": "BK-4210B",
+      "type": "seva",
+      "bookingDate": "2026-07-08T14:30:00Z",
+      "visitDate": "2026-07-12",
+      "status": "CONFIRMED",
+      "transactionId": "TXN-492817290",
+      "amountPaid": 1000,
+      "pilgrims": [
+        {
+          "name": "Ramesh Kumar",
+          "age": 50,
+          "gender": "Male",
+          "idType": "Aadhaar",
+          "idNumber": "998877665544"
+        },
+        {
+          "name": "Sujatha Rani",
+          "age": 43,
+          "gender": "Female",
+          "idType": "Aadhaar",
+          "idNumber": "554433221100"
+        }
+      ],
+      "details": {
+        "sevaName": "Kalyanotsavam Seva",
+        "deity": "Sri Venkateswara Swamy"
+      }
+    }
+  ],
+  "donations": [
+    {
+      "id": "DN-1029",
+      "donorName": "Venkata Raman",
+      "email": "raman@example.com",
+      "phone": "9876543210",
+      "panNumber": "ABCDE1234F",
+      "amount": 5000,
+      "scheme": "Annadanam Trust (Free Meals)",
+      "transactionId": "TXN-DON817293",
+      "date": "2026-07-08T18:20:00Z"
+    },
+    {
+      "id": "DN-1030",
+      "donorName": "Anjali Devi",
+      "email": "anjali@example.com",
+      "phone": "8765432109",
+      "amount": 1000,
+      "scheme": "General Temple Hundi",
+      "transactionId": "TXN-DON392812",
+      "date": "2026-07-09T02:10:00Z"
+    }
+  ],
+  "chats": []
+}

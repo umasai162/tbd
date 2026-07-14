@@ -1,0 +1,6 @@
+{
+  "name": "Devasthanams Portal",
+  "description": "A comprehensive full-stack booking, donation, and information portal for devasthanams (temples).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

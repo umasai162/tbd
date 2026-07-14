@@ -1,0 +1,46 @@
+# Render Deployment Configuration for Sri Venkateswara Holy Devasthanams
+
+services:
+  # Web Service
+  - type: web
+    name: temple-portal
+    env: node
+    plan: free # Change to 'starter' or 'standard' for production
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      # Gemini AI API Key (Add in Render dashboard)
+      - key: GEMINI_API_KEY
+        sync: false
+      # MySQL Database Configuration (Add in Render dashboard)
+      - key: DB_HOST
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_NAME
+        sync: false
+      - key: DB_PORT
+        value: 3306
+
+  # PostgreSQL Database (Alternative to external MySQL)
+  # Uncomment if you want to use Render's PostgreSQL instead of external MySQL
+  # - type: postgres
+  #   name: temple-db
+  #   plan: free
+  #   ipAllowList: [] # Allow all IPs (configure for production)
+
+databases:
+  # MySQL Database (Render doesn't support MySQL directly, use external)
+  # You need to use an external MySQL provider like:
+  # - PlanetScale
+  # - AWS RDS
+  # - Google Cloud SQL
+  # - DigitalOcean MySQL
+  
+  # For MySQL, add the connection details in Render environment variables
