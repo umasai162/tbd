@@ -4,10 +4,8 @@ services:
   # Web Service
   - type: web
     name: temple-portal
-    env: node
+    env: docker
     plan: free # Change to 'starter' or 'standard' for production
-    buildCommand: npm install && npm run build
-    startCommand: npm start
     envVars:
       - key: NODE_ENV
         value: production
