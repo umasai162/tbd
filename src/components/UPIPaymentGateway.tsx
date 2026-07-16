@@ -37,7 +37,7 @@ export default function UPIPaymentGateway({
 
   // Generate UPI deep link
   const generateUPILink = (appId?: string) => {
-    const pa = 'temple@ybl'; // Merchant UPI ID
+    const pa = 'umasaisanker8@oksbi'; // Merchant UPI ID
     const pn = merchantName;
     const am = amount;
     const cu = 'INR';
@@ -53,7 +53,7 @@ export default function UPIPaymentGateway({
   };
 
   // Generate QR code value
-  const qrCodeValue = `upi://pay?pa=temple@ybl&pn=${encodeURIComponent(merchantName)}&am=${amount}&cu=INR&tn=${encodeURIComponent(description)}&tr=${transactionId}`;
+  const qrCodeValue = `upi://pay?pa=umasaisanker8@oksbi&pn=${encodeURIComponent(merchantName)}&am=${amount}&cu=INR&tn=${encodeURIComponent(description)}&tr=${transactionId}`;
 
   // Countdown timer
   useEffect(() => {
@@ -66,45 +66,21 @@ export default function UPIPaymentGateway({
     }
   }, [countdown, paymentStatus]);
 
-  // Real payment verification with backend API
+  // Mock payment verification
   const verifyPayment = async () => {
     setPaymentStatus('processing');
     
-    try {
-      // Call backend to verify payment
-      const response = await fetch('/api/payments/verify', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          transactionId,
-          amount,
-          method: 'UPI'
-        })
+    // Simulate API delay
+    setTimeout(() => {
+      setPaymentStatus('success');
+      onPaymentSuccess({
+        transactionId,
+        amount,
+        timestamp: new Date().toISOString(),
+        method: 'UPI',
+        status: 'SUCCESS'
       });
-      
-      const data = await response.json();
-      
-      if (data.success && data.status === 'SUCCESS') {
-        setPaymentStatus('success');
-        onPaymentSuccess({
-          transactionId,
-          amount,
-          timestamp: new Date().toISOString(),
-          method: 'UPI',
-          status: 'SUCCESS'
-        });
-      } else if (data.status === 'PENDING') {
-        // Payment is still pending, keep processing status
-        setPaymentStatus('processing');
-        onPaymentFailure(data.message || 'Payment is pending. Please complete payment and verify again.');
-      } else {
-        setPaymentStatus('failed');
-        onPaymentFailure(data.message || 'Payment verification failed');
-      }
-    } catch (error) {
-      setPaymentStatus('failed');
-      onPaymentFailure('Payment verification failed. Please try again.');
-    }
+    }, 1500);
   };
 
   const handleAppSelection = (appId: 'gpay' | 'phonepe' | 'paytm' | 'bhim') => {
@@ -126,7 +102,7 @@ export default function UPIPaymentGateway({
     
     // For manual UPI payment, we need to wait for actual payment
     // Show instructions and then verify payment
-    alert(`Please complete the payment of ₹${amount} to temple@ybl using your UPI app. After payment, click "I have completed payment" to verify.`);
+    alert(`Please complete the payment of ₹${amount} to umasaisanker8@oksbi using your UPI app. After payment, click "I have completed payment" to verify.`);
     
     setPaymentStatus('processing');
     // Don't auto-approve - wait for user to confirm payment
