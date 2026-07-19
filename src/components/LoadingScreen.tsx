@@ -71,17 +71,17 @@ export default function LoadingScreen({ onDone }: { onDone: () => void }) {
           transition: "transform 1.4s cubic-bezier(0.34,1.56,0.64,1), opacity 1.2s ease",
         }}
       >
-        {/* Om symbol above */}
+        {/* Divine Logo above */}
         <div
-          className="text-yellow-400 font-bold mb-3"
+          className="mb-4 overflow-hidden rounded-full border-2 border-yellow-400"
           style={{
-            fontSize: "2.5rem",
-            fontFamily: "serif",
-            textShadow: "0 0 20px rgba(255,200,0,0.8), 0 0 40px rgba(255,150,0,0.5)",
+            width: "64px",
+            height: "64px",
+            boxShadow: "0 0 20px rgba(255,200,0,0.8), 0 0 40px rgba(255,150,0,0.5)",
             animation: "pulse 2s ease-in-out infinite",
           }}
         >
-          ॐ
+          <img src="/gallery/logo.png" alt="Logo" className="w-full h-full object-cover" />
         </div>
 
         {/* Deity photo in golden frame */}

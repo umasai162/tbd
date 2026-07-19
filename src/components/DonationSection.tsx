@@ -420,7 +420,9 @@ export default function DonationSection() {
           <div id="print-receipt" className="border-4 border-double border-[#b45309] p-8 rounded-2xl bg-orange-50/10 text-center space-y-6 relative max-w-2xl mx-auto traditional-glow">
             {/* Watermark/Border accents */}
             <div className="absolute inset-2 border border-stone-200 pointer-events-none rounded-xl"></div>
-            <div className="text-3xl text-orange-200 opacity-25 absolute inset-0 flex items-center justify-center select-none font-bold">ॐ</div>
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none opacity-5">
+              <img src="/gallery/logo.png" alt="Watermark Logo" className="w-48 h-48 object-contain" />
+            </div>
 
             <div className="space-y-1 relative">
               <h1 className="font-cinzel text-base font-extrabold text-[#78350f] tracking-wide">

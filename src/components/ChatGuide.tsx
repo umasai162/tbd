@@ -91,8 +91,8 @@ export default function ChatGuide() {
           {/* Header */}
           <div className="bg-gradient-to-r from-saffron-700 to-saffron-800 text-amber-50 p-4 flex items-center justify-between border-b border-amber-200">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 bg-amber-400 text-saffron-900 rounded-full flex items-center justify-center font-bold font-cinzel">
-                ॐ
+              <div className="w-8 h-8 rounded-full overflow-hidden border border-amber-300 shadow-sm shrink-0 bg-white">
+                <img src="/gallery/logo.png" alt="Devalaya Mitra Logo" className="w-full h-full object-cover" />
               </div>
               <div>
                 <h3 className="font-cinzel text-xs font-bold tracking-wider">DEVALAYA MITRA</h3>

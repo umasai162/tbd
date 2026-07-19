@@ -8,7 +8,7 @@ const weeklySchedule: Record<string, { title: string; time?: string; description
   Wednesday: { title: "Normal Darshanam",       description: "Regular darshan open for all pilgrims throughout the day.",                          badge: "Open All Day",   badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-200" },
   Thursday:  { title: "Nijarupa Darshanam",     description: "Special Nijarupa Darshanam — Lord Venkateswara in his original divine form.",        badge: "Special Seva",   badgeColor: "bg-amber-100 text-amber-800 border-amber-200" },
   Friday:    { title: "Suprabhatam Seva",       time: "4:00 AM", description: "Sacred early morning Suprabhatam — divine awakening of Lord Venkateswara.",  badge: "4:00 AM Start",  badgeColor: "bg-orange-100 text-orange-800 border-orange-200" },
-  Saturday:  { title: "Thomala Seva",           time: "4:00 AM", description: "Sacred early morning Thomala Seva — divine flower garland offering.",         badge: "4:00 AM Start",  badgeColor: "bg-purple-100 text-purple-800 border-purple-200" },
+  Saturday:  { title: "Nitya Annaprasadam Seva", time: "Afternoon: 11:30 AM - 3:00 PM | Night: 6:30 PM - 9:30 PM", description: "Sacred distribution of free holy meals (Annaprasadam) to all visiting devotees.", badge: "Annaprasadam", badgeColor: "bg-amber-100 text-amber-800 border-amber-200" },
   Sunday:    { title: "Normal Darshanam",       description: "Regular darshan open for all pilgrims. Expect heavy crowds on weekends.",             badge: "Open All Day",   badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-200" },
 };
 
@@ -141,7 +141,7 @@ export default function HeroSection({ onNavigate, liveStats }: HeroSectionProps)
                   </span>
                   {schedule.time && (
                     <span className="flex items-center gap-1 text-[10px] font-semibold text-[#78350f] bg-orange-50 px-2.5 py-1 rounded-full border border-orange-200">
-                      <Clock className="w-3 h-3" /> Starts at {schedule.time}
+                      <Clock className="w-3 h-3" /> {schedule.time.startsWith("Afternoon") ? "" : "Starts at "}{schedule.time}
                     </span>
                   )}
                 </div>
