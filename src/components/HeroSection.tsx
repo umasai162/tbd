@@ -38,7 +38,7 @@ export default function HeroSection({ onNavigate, liveStats }: HeroSectionProps)
   }, []);
 
   const actions = [
-    { id: "darshan", label: "Special Darshan (Rs 300)", desc: "Reserve date and time slots", icon: Calendar, color: "from-orange-500 to-orange-700" },
+    { id: "darshan", label: "Special Darshan (Rs 100)", desc: "Reserve date and time slots", icon: Calendar, color: "from-orange-500 to-orange-700" },
     { id: "sevas", label: "Book Holy Pujas / Sevas", desc: "Suprabhatam, Kalyanotsavam, Archana", icon: BookOpen, color: "from-amber-500 to-amber-700" },
     { id: "donations", label: "Digital e-Hundi & Trusts", desc: "Support Annadanam & Gosala", icon: HeartHandshake, color: "from-red-500 to-red-700" },
     { id: "prasadam", label: "Pre-order Laddus & Food", desc: "Bypass counters, collect with vouchers", icon: ShoppingBag, color: "from-emerald-600 to-emerald-800" },
@@ -83,9 +83,8 @@ export default function HeroSection({ onNavigate, liveStats }: HeroSectionProps)
             <button
               key={idx}
               onClick={() => setSlideIndex(idx)}
-              className={`w-2.5 h-2.5 rounded-full border transition-all ${
-                slideIndex === idx ? "bg-[#d97706] border-[#d97706] scale-110" : "bg-transparent border-stone-200/50"
-              }`}
+              className={`w-2.5 h-2.5 rounded-full border transition-all ${slideIndex === idx ? "bg-[#d97706] border-[#d97706] scale-110" : "bg-transparent border-stone-200/50"
+                }`}
             ></button>
           ))}
         </div>

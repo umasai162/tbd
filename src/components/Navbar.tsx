@@ -44,12 +44,10 @@ export default function Navbar({ activeTab, setActiveTab, liveStats }: NavbarPro
               ॐ
             </div>
             <div>
-              <p className="font-bold text-[#78350f] text-sm sm:text-base leading-tight" style={{fontFamily: 'serif'}}>
+              <p className="font-bold text-[#78350f] text-sm sm:text-base leading-tight" style={{ fontFamily: 'serif' }}>
                 శ్రీ తిరుమల బాలాజీ దివ్యక్షేత్రం
               </p>
-              <h1 className="font-cinzel text-sm sm:text-base font-bold text-[#b45309] tracking-tight leading-tight">
-                DEVASHTHANAMS PORTAL
-              </h1>
+
             </div>
           </div>
 
@@ -66,8 +64,8 @@ export default function Navbar({ activeTab, setActiveTab, liveStats }: NavbarPro
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${isActive
-                    ? "bg-[#b45309] text-white shadow-md transform -translate-y-0.5"
-                    : "text-stone-700 hover:bg-orange-50 hover:text-[#b45309]"
+                  ? "bg-[#b45309] text-white shadow-md transform -translate-y-0.5"
+                  : "text-stone-700 hover:bg-orange-50 hover:text-[#b45309]"
                   }`}
               >
                 <Icon className={`w-3.5 h-3.5 ${isActive ? "text-orange-200" : "text-[#d97706]"}`} />
