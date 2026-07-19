@@ -16,6 +16,7 @@ export default function Gallery() {
     { id: 10, src: "/gallery/photo10.jpg", title: "Divine Blessings" },
     { id: 11, src: "/gallery/photo11.jpg", title: "Flower Decoration" },
     { id: 12, src: "/gallery/photo12.jpg", title: "Temple Celebrations" },
+    { id: 13, src: "/gallery/photo13.jpg", title: "Divine Presence" },
   ].filter(img => !failedImages.has(img.id));
 
   const handleError = (id: number) => {
