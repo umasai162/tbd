@@ -9,8 +9,10 @@ import CheckTicket from "./components/CheckTicket";
 import PanchangamCalendar from "./components/PanchangamCalendar";
 import ChatGuide from "./components/ChatGuide";
 import Gallery from "./components/Gallery";
+import LoadingScreen from "./components/LoadingScreen";
 
 export default function App() {
+  const [loading, setLoading] = useState<boolean>(true);
   const [activeTab, setActiveTab] = useState<string>("home");
   const [liveStats, setLiveStats] = useState<any>(null);
   
@@ -129,6 +131,8 @@ export default function App() {
   };
 
   return (
+    <>
+      {loading && <LoadingScreen onDone={() => setLoading(false)} />}
     <div 
       className="min-h-screen bg-cover bg-center bg-no-repeat bg-fixed text-stone-800 flex flex-col font-sans selection:bg-orange-100 selection:text-orange-900"
       style={{ backgroundImage: 'linear-gradient(to bottom, rgba(253, 250, 245, 0.4), rgba(253, 250, 245, 0.5)), url("https://lh3.googleusercontent.com/gps-cs-s/AHRPTWk3dktjLv8vlCzQQfJ8BQ_U5kQK65J_AbO18JNeivtsTKpUFD4UiF39uHr4M1JCB0ava57sBxaoeRXN8XyB0DcdSql-DBpbDcLdf0lZWN-bek6KOvDfR8n5anuKXyOo0th0RG-V=s1600")' }}
@@ -412,6 +416,7 @@ export default function App() {
       {/* 6. Divine Floating Assistant Chatbot (Gemini AI powered) */}
       <ChatGuide />
     </div>
+    </>
   );
 }
 
