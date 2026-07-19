@@ -110,22 +110,28 @@ export default function LoadingScreen({ onDone }: { onDone: () => void }) {
 
         {/* Temple name */}
         <div className="mt-5 text-center space-y-1">
+          <p
+            className="font-bold text-yellow-200 tracking-wide"
+            style={{ fontFamily: "serif", fontSize: "1rem", textShadow: "0 0 10px rgba(255,200,0,0.6)" }}
+          >
+            శ్రీ తిరుమల బాలాజీ దివ్యక్షేత్రం
+          </p>
           <h1
             className="text-yellow-300 font-bold tracking-widest uppercase"
             style={{
               fontFamily: "'Cinzel', serif",
-              fontSize: "1rem",
+              fontSize: "0.8rem",
               textShadow: "0 0 15px rgba(255,200,0,0.8)",
-              letterSpacing: "0.25em",
+              letterSpacing: "0.2em",
             }}
           >
-            Sri Venkateswara
+            DEVASHTHANAMS PORTAL
           </h1>
           <p
             className="text-yellow-500/80 tracking-wider"
-            style={{ fontFamily: "'Cinzel', serif", fontSize: "0.65rem", letterSpacing: "0.3em" }}
+            style={{ fontFamily: "'Cinzel', serif", fontSize: "0.6rem", letterSpacing: "0.25em" }}
           >
-            HOLY DEVASTHANAMS
+            SRI VENKATESWARA HOLY TRUST
           </p>
         </div>
 

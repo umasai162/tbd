@@ -44,7 +44,10 @@ export default function Navbar({ activeTab, setActiveTab, liveStats }: NavbarPro
               ॐ
             </div>
             <div>
-              <h1 className="font-cinzel text-lg sm:text-xl font-bold text-[#b45309] tracking-tight leading-tight">
+              <p className="font-bold text-[#78350f] text-sm sm:text-base leading-tight" style={{fontFamily: 'serif'}}>
+                శ్రీ తిరుమల బాలాజీ దివ్యక్షేత్రం
+              </p>
+              <h1 className="font-cinzel text-sm sm:text-base font-bold text-[#b45309] tracking-tight leading-tight">
                 DEVASHTHANAMS PORTAL
               </h1>
               <p className="text-[10px] tracking-widest text-[#78350f] font-medium font-cinzel">
