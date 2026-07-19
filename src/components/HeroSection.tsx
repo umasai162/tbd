@@ -1,5 +1,16 @@
 import { useState, useEffect } from "react";
-import { Compass, Calendar, BookOpen, HeartHandshake, ShoppingBag, Search, Sparkles, AlertCircle, Sun } from "lucide-react";
+import { Calendar, BookOpen, HeartHandshake, ShoppingBag, Search, Sparkles, Sun, Clock, Star } from "lucide-react";
+
+// Weekly Darshan Schedule
+const weeklySchedule: Record<string, { title: string; time?: string; description: string; badge: string; badgeColor: string }> = {
+  Monday:    { title: "Normal Darshanam",       description: "Regular darshan open for all pilgrims throughout the day.",                          badge: "Open All Day",   badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-200" },
+  Tuesday:   { title: "Normal Darshanam",       description: "Regular darshan open for all pilgrims throughout the day.",                          badge: "Open All Day",   badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-200" },
+  Wednesday: { title: "Normal Darshanam",       description: "Regular darshan open for all pilgrims throughout the day.",                          badge: "Open All Day",   badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-200" },
+  Thursday:  { title: "Nijarupa Darshanam",     description: "Special Nijarupa Darshanam — Lord Venkateswara in his original divine form.",        badge: "Special Seva",   badgeColor: "bg-amber-100 text-amber-800 border-amber-200" },
+  Friday:    { title: "Suprabhatam Seva",       time: "4:00 AM", description: "Sacred early morning Suprabhatam — divine awakening of Lord Venkateswara.",  badge: "4:00 AM Start",  badgeColor: "bg-orange-100 text-orange-800 border-orange-200" },
+  Saturday:  { title: "Thomala Seva",           time: "4:00 AM", description: "Sacred early morning Thomala Seva — divine flower garland offering.",         badge: "4:00 AM Start",  badgeColor: "bg-purple-100 text-purple-800 border-purple-200" },
+  Sunday:    { title: "Normal Darshanam",       description: "Regular darshan open for all pilgrims. Expect heavy crowds on weekends.",             badge: "Open All Day",   badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-200" },
+};
 
 interface HeroSectionProps {
   onNavigate: (tab: string) => void;
@@ -91,8 +102,95 @@ export default function HeroSection({ onNavigate, liveStats }: HeroSectionProps)
       </div>
 
 
+      {/* TODAY'S DARSHAN SCHEDULE */}
+      {(() => {
+        const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const today = days[new Date().getDay()];
+        const schedule = weeklySchedule[today];
+        const allDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+        return (
+          <div className="bg-white border border-[#e7e5e4] rounded-2xl overflow-hidden shadow-sm">
+            {/* Header */}
+            <div className="bg-gradient-to-r from-[#78350f] to-[#b45309] px-5 py-3 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Sun className="w-4 h-4 text-orange-200 animate-spin" style={{ animationDuration: "8s" }} />
+                <span className="font-cinzel text-white font-bold text-sm tracking-wide">Today's Darshan Schedule</span>
+              </div>
+              <div className="flex items-center gap-1.5 bg-white/15 px-3 py-1 rounded-full">
+                <div className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
+                <span className="text-white text-[10px] font-semibold">{today}</span>
+              </div>
+            </div>
+
+            <div className="p-5 flex flex-col sm:flex-row gap-5">
+              {/* Today's highlight */}
+              <div className="flex-1 space-y-3">
+                <div className="flex items-start gap-3">
+                  <div className="p-2.5 bg-amber-50 rounded-xl border border-amber-100 shrink-0">
+                    <Star className="w-5 h-5 text-[#b45309]" />
+                  </div>
+                  <div>
+                    <h4 className="font-cinzel font-bold text-stone-900 text-base leading-tight">{schedule.title}</h4>
+                    <p className="text-stone-600 text-xs mt-1 leading-relaxed">{schedule.description}</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full border ${schedule.badgeColor}`}>
+                    {schedule.badge}
+                  </span>
+                  {schedule.time && (
+                    <span className="flex items-center gap-1 text-[10px] font-semibold text-[#78350f] bg-orange-50 px-2.5 py-1 rounded-full border border-orange-200">
+                      <Clock className="w-3 h-3" /> Starts at {schedule.time}
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              {/* Weekly mini calendar strip */}
+              <div className="shrink-0">
+                <p className="text-[9px] font-bold text-stone-400 uppercase tracking-widest mb-2">This Week</p>
+                <div className="flex gap-1.5">
+                  {allDays.map((day) => {
+                    const s = weeklySchedule[day];
+                    const isToday = day === today;
+                    const isSpecial = s.badge !== "Open All Day";
+                    return (
+                      <div
+                        key={day}
+                        className={`flex flex-col items-center px-2 py-2 rounded-xl border transition-all ${
+                          isToday
+                            ? "bg-[#b45309] border-[#78350f] shadow-md scale-105"
+                            : isSpecial
+                            ? "bg-amber-50 border-amber-200"
+                            : "bg-stone-50 border-stone-100"
+                        }`}
+                      >
+                        <span className={`text-[9px] font-bold ${isToday ? "text-orange-200" : "text-stone-400"}`}>
+                          {day.slice(0, 3).toUpperCase()}
+                        </span>
+                        <span className={`mt-1 text-[8px] font-semibold text-center leading-tight w-8 ${
+                          isToday ? "text-white" : isSpecial ? "text-amber-700" : "text-stone-600"
+                        }`}>
+                          {s.title.split(" ")[0]}
+                        </span>
+                        {s.time && (
+                          <span className={`text-[7px] mt-0.5 font-mono ${isToday ? "text-orange-200" : "text-orange-600"}`}>
+                            {s.time}
+                          </span>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      })()}
 
       {/* 3. BENTO QUICK LINKS GRID */}
+
       <div className="space-y-4">
         <div>
           <span className="text-[10px] uppercase font-bold text-[#b45309] tracking-wider font-cinzel">Quick Actions</span>
