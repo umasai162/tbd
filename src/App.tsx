@@ -129,7 +129,10 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fdfaf5] text-stone-800 flex flex-col font-sans selection:bg-orange-100 selection:text-orange-900">
+    <div 
+      className="min-h-screen bg-cover bg-center bg-no-repeat bg-fixed text-stone-800 flex flex-col font-sans selection:bg-orange-100 selection:text-orange-900"
+      style={{ backgroundImage: 'linear-gradient(to bottom, rgba(253, 250, 245, 0.4), rgba(253, 250, 245, 0.5)), url("https://lh3.googleusercontent.com/gps-cs-s/AHRPTWk3dktjLv8vlCzQQfJ8BQ_U5kQK65J_AbO18JNeivtsTKpUFD4UiF39uHr4M1JCB0ava57sBxaoeRXN8XyB0DcdSql-DBpbDcLdf0lZWN-bek6KOvDfR8n5anuKXyOo0th0RG-V=s1600")' }}
+    >
       {/* Background Peace Music (hidden audio element) */}
       <audio
         ref={audioRef}
@@ -149,7 +152,6 @@ export default function App() {
           {activeTab === "home" && (
             <div className="space-y-8">
               <HeroSection onNavigate={setActiveTab} liveStats={liveStats} />
-              <PanchangamCalendar />
             </div>
           )}
 
@@ -188,15 +190,30 @@ export default function App() {
       </main>
 
       {/* 3. Footer (hidden on mobile to not interfere with bottom nav) */}
-      <footer className="hidden sm:block bg-stone-900 text-stone-400 text-xs py-8 border-t border-stone-800 mt-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-          <div className="space-y-1">
-            <h4 className="font-cinzel text-xs font-bold text-stone-100 tracking-wider">SRI VENKATESWARA HOLY DEVASTHANAMS</h4>
+      <footer className="hidden sm:block bg-stone-900 text-stone-400 text-xs py-10 border-t border-stone-800 mt-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+          <div className="space-y-2">
+            <h4 className="font-cinzel text-sm font-bold text-stone-100 tracking-wider">SRI VENKATESWARA HOLY DEVASTHANAMS</h4>
             <p className="text-[10px] uppercase font-mono">Official Devotional Services Administration Portal • © 2026</p>
           </div>
-          <div className="text-[10px] space-y-1 md:text-right">
-            <p>Managed by Department of Endowments, Govt. of Andhra Pradesh, India</p>
-            <p>Under strict compliance of temple rules, dress codes, and tradition guidelines.</p>
+          <div className="space-y-2">
+            <h4 className="font-cinzel text-sm font-bold text-stone-100 tracking-wider">CONTACT US</h4>
+            <ul className="space-y-1">
+              <li>Phone: 1800-425-4141</li>
+              <li>Email: helpdesk@tirumala.org</li>
+              <li>Address: Tirumala Hills, Andhra Pradesh</li>
+            </ul>
+          </div>
+          <div className="space-y-2">
+            <h4 className="font-cinzel text-sm font-bold text-stone-100 tracking-wider">CONNECT WITH US</h4>
+            <ul className="space-y-1">
+              <li className="flex items-center justify-center md:justify-start gap-2 cursor-pointer hover:text-white transition-colors">
+                <span className="text-pink-500">Instagram:</span> @official_ttd
+              </li>
+              <li className="flex items-center justify-center md:justify-start gap-2 cursor-pointer hover:text-white transition-colors">
+                <span className="text-emerald-500">WhatsApp:</span> +91 93993 99399
+              </li>
+            </ul>
           </div>
         </div>
       </footer>

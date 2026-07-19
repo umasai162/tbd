@@ -14,7 +14,7 @@ export default function HeroSection({ onNavigate, liveStats }: HeroSectionProps)
       title: "Sri Venkateswara Swamy Temple",
       subtitle: "The Sacred Abode on Seven Hills (Tirumala)",
       desc: "Experience divine light at the world's most-visited holy shrine, nested in the tranquil Seshachalam range of Chittoor Hills.",
-      img: "https://images.unsplash.com/photo-1608958416715-09dfc249a05b?q=80&w=1200&auto=format&fit=crop" // Beautiful temple placeholder
+      img: "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWk3dktjLv8vlCzQQfJ8BQ_U5kQK65J_AbO18JNeivtsTKpUFD4UiF39uHr4M1JCB0ava57sBxaoeRXN8XyB0DcdSql-DBpbDcLdf0lZWN-bek6KOvDfR8n5anuKXyOo0th0RG-V=s1600"
     },
     {
       title: "Sri Bhramaramba Mallikarjuna Temple",
@@ -91,18 +91,7 @@ export default function HeroSection({ onNavigate, liveStats }: HeroSectionProps)
         </div>
       </div>
 
-      {/* 2. DEVOTIONAL BANNER PHOTO */}
-      <div className="rounded-2xl overflow-hidden shadow-md border border-[#e7e5e4] h-64 relative group">
-        <img 
-          src="https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=1200&auto=format&fit=crop" 
-          alt="Divine Sanctum" 
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#78350f]/80 via-transparent to-transparent flex flex-col justify-end p-6">
-           <h3 className="text-white font-cinzel text-xl font-bold">Experience the Divine Grace</h3>
-           <p className="text-orange-100 text-sm mt-1 max-w-lg">Immerse yourself in the spiritual tranquility and sacred surroundings of the holy devasthanam.</p>
-        </div>
-      </div>
+
 
       {/* 3. BENTO QUICK LINKS GRID */}
       <div className="space-y-4">
