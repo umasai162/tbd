@@ -8,8 +8,11 @@ interface NavbarProps {
 
 export default function Navbar({ activeTab, setActiveTab, liveStats }: NavbarProps) {
   const tabs = [
-    { id: "home", label: "Home", icon: Compass },
+    { id: "home", label: "Home & Live", icon: Compass },
     { id: "darshan", label: "Darshan Tickets", icon: Calendar },
+    { id: "sevas", label: "Seva Bookings", icon: BookOpen },
+    { id: "donations", label: "E-Donation & Hundi", icon: HeartHandshake },
+    { id: "prasadam", label: "Prasadam Laddu", icon: ShoppingBag },
     { id: "check", label: "Verify Ticket", icon: Search }
   ];
 

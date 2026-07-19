@@ -38,7 +38,10 @@ export default function HeroSection({ onNavigate, liveStats }: HeroSectionProps)
   }, []);
 
   const actions = [
-    { id: "darshan", label: "Darshan Tickets", desc: "Reserve date and time slots", icon: Calendar, color: "from-orange-500 to-orange-700" },
+    { id: "darshan", label: "Special Darshan (Rs 300)", desc: "Reserve date and time slots", icon: Calendar, color: "from-orange-500 to-orange-700" },
+    { id: "sevas", label: "Book Holy Pujas / Sevas", desc: "Suprabhatam, Kalyanotsavam, Archana", icon: BookOpen, color: "from-amber-500 to-amber-700" },
+    { id: "donations", label: "Digital e-Hundi & Trusts", desc: "Support Annadanam & Gosala", icon: HeartHandshake, color: "from-red-500 to-red-700" },
+    { id: "prasadam", label: "Pre-order Laddus & Food", desc: "Bypass counters, collect with vouchers", icon: ShoppingBag, color: "from-emerald-600 to-emerald-800" },
     { id: "check", label: "Verify & Print passes", desc: "Lookup tickets with Aadhaar / ID", icon: Search, color: "from-[#b45309] to-[#78350f]" }
   ];
 
@@ -88,7 +91,44 @@ export default function HeroSection({ onNavigate, liveStats }: HeroSectionProps)
         </div>
       </div>
 
+      {/* 2. LIVE CROWD TRACKER & DETAILS BAR */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 bg-[#fffbeb] border border-[#e7e5e4] rounded-2xl p-6 relative overflow-hidden shadow-sm">
+        <div className="absolute top-0 right-0 w-32 h-32 bg-orange-100 rounded-bl-full -z-10 opacity-30"></div>
+        
+        <div className="md:col-span-2 space-y-4">
+          <div className="flex items-center gap-2">
+            <AlertCircle className="w-5 h-5 text-[#b45309] animate-bounce" />
+            <h3 className="font-cinzel text-sm font-bold text-[#78350f]">
+              Live Pilgrim Logistics & Counters
+            </h3>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="bg-white border border-[#e7e5e4] p-3 rounded-xl shadow-sm">
+              <span className="text-[10px] text-stone-600 font-bold uppercase tracking-wide">General Sarva Darshan Wait Time</span>
+              <p className="text-base font-bold font-mono text-[#b45309] mt-1">{liveStats?.liveWaitTimeGeneral || "4 Hours"}</p>
+              <div className="w-full bg-stone-100 h-1.5 rounded-full mt-2 overflow-hidden">
+                <div className="bg-[#b45309] h-1.5 rounded-full" style={{ width: "70%" }}></div>
+              </div>
+            </div>
+            <div className="bg-white border border-[#e7e5e4] p-3 rounded-xl shadow-sm">
+              <span className="text-[10px] text-stone-600 font-bold uppercase tracking-wide">Special Entry (Rs 300) Wait Time</span>
+              <p className="text-base font-bold font-mono text-emerald-700 mt-1">{liveStats?.liveWaitTimeSpecial || "45 mins"}</p>
+              <div className="w-full bg-stone-100 h-1.5 rounded-full mt-2 overflow-hidden">
+                <div className="bg-emerald-600 h-1.5 rounded-full" style={{ width: "25%" }}></div>
+              </div>
+            </div>
+          </div>
+        </div>
 
+        <div className="border-t md:border-t-0 md:border-l border-[#e7e5e4] pt-4 md:pt-0 md:pl-6 space-y-3.5 text-xs">
+          <h4 className="font-cinzel font-bold text-[#78350f] uppercase text-[10px] tracking-wider">Atmospheric & Headquarters</h4>
+          <div className="space-y-2 text-stone-700 font-medium">
+            <p className="flex justify-between"><span>Location:</span> <strong className="text-stone-900 font-cinzel">{liveStats?.location?.split("(")[0] || "Tirumala Hills"}</strong></p>
+            <p className="flex justify-between"><span>Climate:</span> <strong className="text-stone-900 flex items-center gap-1"><Sun className="w-3.5 h-3.5 text-amber-600" /> {liveStats?.weather || "28°C Clear"}</strong></p>
+            <p className="flex justify-between"><span>Hundi Collections Today:</span> <strong className="text-emerald-700 font-mono">Rs.{liveStats?.adminStats?.hundiCollection || "5,000"}</strong></p>
+          </div>
+        </div>
+      </div>
 
       {/* 3. BENTO QUICK LINKS GRID */}
       <div className="space-y-4">

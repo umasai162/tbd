@@ -128,10 +128,7 @@ export default function App() {
   };
 
   return (
-    <div 
-      className="min-h-screen bg-cover bg-center bg-no-repeat bg-fixed text-stone-800 flex flex-col font-sans selection:bg-orange-100 selection:text-orange-900"
-      style={{ backgroundImage: 'linear-gradient(to bottom, rgba(253, 250, 245, 0.4), rgba(253, 250, 245, 0.5)), url("https://images.unsplash.com/photo-1608958416715-09dfc249a05b?q=80&w=1200&auto=format&fit=crop")' }}
-    >
+    <div className="min-h-screen bg-[#fdfaf5] text-stone-800 flex flex-col font-sans selection:bg-orange-100 selection:text-orange-900">
       {/* Background Peace Music (hidden audio element) */}
       <audio
         ref={audioRef}
@@ -159,6 +156,17 @@ export default function App() {
             <DarshanBooking onBookingSuccess={handleBookingSuccess} />
           )}
 
+          {activeTab === "sevas" && (
+            <SevaBooking onBookingSuccess={handleBookingSuccess} />
+          )}
+
+          {activeTab === "donations" && (
+            <DonationSection />
+          )}
+
+          {activeTab === "prasadam" && (
+            <PrasadamOrder onBookingSuccess={handleBookingSuccess} />
+          )}
 
           {activeTab === "check" && (
             <div className="space-y-6">
@@ -357,6 +365,9 @@ export default function App() {
           {[
             { id: "home", label: "Home", icon: "🏛️" },
             { id: "darshan", label: "Darshan", icon: "🙏" },
+            { id: "sevas", label: "Sevas", icon: "📿" },
+            { id: "donations", label: "Donate", icon: "💝" },
+            { id: "prasadam", label: "Prasad", icon: "🍬" },
             { id: "check", label: "Tickets", icon: "🎫" },
           ].map((tab) => (
             <button
