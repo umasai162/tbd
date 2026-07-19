@@ -40,8 +40,8 @@ export default function Navbar({ activeTab, setActiveTab, liveStats }: NavbarPro
         <div className="flex items-center justify-between h-20">
           {/* Logo Brand area */}
           <div className="flex items-center gap-3 cursor-pointer" onClick={() => setActiveTab("home")}>
-            <div className="w-12 h-12 bg-[#b45309] rounded-full flex items-center justify-center text-white font-cinzel text-xl font-bold shadow-lg border-2 border-[#78350f]">
-              ॐ
+            <div className="w-12 h-12 rounded-full overflow-hidden shadow-lg border-2 border-[#78350f]">
+              <img src="/gallery/logo.png" alt="Sri Venkateswara Logo" className="w-full h-full object-cover" />
             </div>
             <div>
               <p className="font-bold text-[#78350f] text-sm sm:text-base leading-tight" style={{ fontFamily: 'serif' }}>
