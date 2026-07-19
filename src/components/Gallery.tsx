@@ -1,11 +1,11 @@
 export default function Gallery() {
   const images = [
-    { id: 1, src: "https://i.pinimg.com/736x/89/36/53/893653dcabef62a900971b4a9f62243d.jpg", title: "Sri Venkateswara Swamy" },
+    { id: 1, src: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Tirumala_Venkateswara_Temple_Visakhapatnam.jpg/800px-Tirumala_Venkateswara_Temple_Visakhapatnam.jpg", title: "Sri Venkateswara Swamy" },
     { id: 2, src: "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWk3dktjLv8vlCzQQfJ8BQ_U5kQK65J_AbO18JNeivtsTKpUFD4UiF39uHr4M1JCB0ava57sBxaoeRXN8XyB0DcdSql-DBpbDcLdf0lZWN-bek6KOvDfR8n5anuKXyOo0th0RG-V=s1600", title: "STBL Temple View" },
-    { id: 3, src: "https://i.pinimg.com/originals/db/bb/bb/dbbbbbb52d9c02da3c6fc98c0b5f54cc.jpg", title: "Evening Aarti" },
-    { id: 4, src: "https://images.unsplash.com/photo-1621847468516-1ed0d0df5a87?q=80&w=600&auto=format&fit=crop", title: "Sacred Pillars" },
-    { id: 5, src: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?q=80&w=600&auto=format&fit=crop", title: "Temple Architecture" },
-    { id: 6, src: "https://images.unsplash.com/photo-1514222134-b57cbb8ce073?q=80&w=600&auto=format&fit=crop", title: "Devotional Chants" }
+    { id: 3, src: "https://upload.wikimedia.org/wikipedia/commons/2/2d/Lord_Venkateswara.jpg", title: "Divine Darshan" },
+    { id: 4, src: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Tirumala_tirupati_Devasthanams.jpg/800px-Tirumala_tirupati_Devasthanams.jpg", title: "Sacred Temple" },
+    { id: 5, src: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Srivari_Brahmotsavam_2012.jpg/800px-Srivari_Brahmotsavam_2012.jpg", title: "Brahmotsavam" },
+    { id: 6, src: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Tirumala_temple.jpg/800px-Tirumala_temple.jpg", title: "Temple Architecture" }
   ];
 
   return (
