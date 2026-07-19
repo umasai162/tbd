@@ -1,4 +1,4 @@
-import { Compass, Calendar, BookOpen, Hotel, HeartHandshake, ShoppingBag, Search, ShieldCheck } from "lucide-react";
+import { Compass, Calendar, BookOpen, Hotel, HeartHandshake, ShoppingBag, Search, ShieldCheck, Image } from "lucide-react";
 
 interface NavbarProps {
   activeTab: string;
@@ -8,11 +8,12 @@ interface NavbarProps {
 
 export default function Navbar({ activeTab, setActiveTab, liveStats }: NavbarProps) {
   const tabs = [
-    { id: "home", label: "Home & Live", icon: Compass },
+    { id: "home", label: "Home", icon: Compass },
     { id: "darshan", label: "Darshan Tickets", icon: Calendar },
     { id: "sevas", label: "Seva Bookings", icon: BookOpen },
     { id: "donations", label: "E-Donation & Hundi", icon: HeartHandshake },
     { id: "prasadam", label: "Prasadam Laddu", icon: ShoppingBag },
+    { id: "gallery", label: "Divine Gallery", icon: Image },
     { id: "check", label: "Verify Ticket", icon: Search }
   ];
 
@@ -74,11 +75,10 @@ export default function Navbar({ activeTab, setActiveTab, liveStats }: NavbarPro
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
-                  isActive
+                className={`flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${isActive
                     ? "bg-[#b45309] text-white shadow-md transform -translate-y-0.5"
                     : "text-stone-700 hover:bg-orange-50 hover:text-[#b45309]"
-                }`}
+                  }`}
               >
                 <Icon className={`w-3.5 h-3.5 ${isActive ? "text-orange-200" : "text-[#d97706]"}`} />
                 {tab.label}

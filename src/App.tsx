@@ -8,6 +8,7 @@ import PrasadamOrder from "./components/PrasadamOrder";
 import CheckTicket from "./components/CheckTicket";
 import PanchangamCalendar from "./components/PanchangamCalendar";
 import ChatGuide from "./components/ChatGuide";
+import Gallery from "./components/Gallery";
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<string>("home");
@@ -166,6 +167,10 @@ export default function App() {
 
           {activeTab === "prasadam" && (
             <PrasadamOrder onBookingSuccess={handleBookingSuccess} />
+          )}
+
+          {activeTab === "gallery" && (
+            <Gallery />
           )}
 
           {activeTab === "check" && (
@@ -368,6 +373,7 @@ export default function App() {
             { id: "sevas", label: "Sevas", icon: "📿" },
             { id: "donations", label: "Donate", icon: "💝" },
             { id: "prasadam", label: "Prasad", icon: "🍬" },
+            { id: "gallery", label: "Gallery", icon: "🖼️" },
             { id: "check", label: "Tickets", icon: "🎫" },
           ].map((tab) => (
             <button
