@@ -53,17 +53,7 @@ export default function Navbar({ activeTab, setActiveTab, liveStats }: NavbarPro
             </div>
           </div>
 
-          {/* Quick Status Indicator */}
-          <div className="hidden lg:flex items-center gap-6 text-xs text-stone-700 bg-white py-1.5 px-4 rounded-full border border-stone-200 shadow-sm">
-            <div className="flex items-center gap-1.5">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span>General wait: <strong className="text-[#b45309] font-semibold">{liveStats?.liveWaitTimeGeneral || "4 Hours"}</strong></span>
-            </div>
-            <div className="w-px h-3 bg-stone-300"></div>
-            <div>
-              <span>Special Darshan: <strong className="text-[#b45309] font-semibold">{liveStats?.liveWaitTimeSpecial || "45 mins"}</strong></span>
-            </div>
-          </div>
+
         </div>
 
         {/* Tab-based Main Navigation (desktop only — mobile uses bottom nav) */}
