@@ -14,6 +14,8 @@ export default function Gallery() {
     { id: 8, src: "/gallery/photo8.jpg", title: "Holy Sanctum" },
     { id: 9, src: "/gallery/photo9.jpg", title: "Brahmotsavam" },
     { id: 10, src: "/gallery/photo10.jpg", title: "Divine Blessings" },
+    { id: 11, src: "/gallery/photo11.jpg", title: "Flower Decoration" },
+    { id: 12, src: "/gallery/photo12.jpg", title: "Temple Celebrations" },
   ].filter(img => !failedImages.has(img.id));
 
   const handleError = (id: number) => {
