@@ -30,9 +30,9 @@ export default function UPIPaymentGateway({
   // UPI Apps configuration
   const upiApps = [
     { id: 'gpay', name: 'Google Pay', icon: '🟢', color: 'bg-green-50 border-green-200' },
-    { id: 'phonepe', name: 'PhonePe', color: 'bg-purple-50 border-purple-200' },
-    { id: 'paytm', name: 'Paytm', color: 'bg-blue-50 border-blue-200' },
-    { id: 'bhim', name: 'BHIM UPI', color: 'bg-orange-50 border-orange-200' }
+    { id: 'phonepe', name: 'PhonePe', icon: '🟣', color: 'bg-purple-50 border-purple-200' },
+    { id: 'paytm', name: 'Paytm', icon: '🔵', color: 'bg-blue-50 border-blue-200' },
+    { id: 'bhim', name: 'BHIM UPI', icon: '🟠', color: 'bg-orange-50 border-orange-200' }
   ];
 
   // Generate UPI deep link

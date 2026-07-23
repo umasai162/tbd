@@ -13,7 +13,7 @@ export default function DarshanBooking({ onBookingSuccess }: DarshanBookingProps
   const [entryType, setEntryType] = useState<'Special Entry' | 'General Entry' | 'Senior Citizen'>('Special Entry');
   const [selectedSlot, setSelectedSlot] = useState<string>("");
   const [pilgrims, setPilgrims] = useState<Pilgrim[]>([]);
-  
+
   // Temporary form state for adding a single pilgrim
   const [tempName, setTempName] = useState("");
   const [tempAge, setTempAge] = useState("");
@@ -28,19 +28,17 @@ export default function DarshanBooking({ onBookingSuccess }: DarshanBookingProps
   const [showUPIGateway, setShowUPIGateway] = useState(false);
   const [generatedTransactionId, setGeneratedTransactionId] = useState("");
 
-  const ticketPrice = entryType === 'Special Entry' ? 300 : entryType === 'Senior Citizen' ? 0 : 0;
+  const ticketPrice = entryType === 'Special Entry' ? 100 : entryType === 'Senior Citizen' ? 0 : 0;
   const totalAmount = pilgrims.length * ticketPrice;
   const paytmLink = `paytmmp://pay?pa=umasaisanker8@oksbi&pn=SriVenkateswaraTemple&am=${totalAmount}&cu=INR&tn=DarshanBooking`;
   const upiLink = `upi://pay?pa=umasaisanker8@oksbi&pn=SriVenkateswaraTemple&am=${totalAmount}&cu=INR`;
 
   // Authentic slots with varying availability counts based on type
   const slots = [
-    { time: "08:00 AM - 09:00 AM", available: 120, status: "filling" },
-    { time: "10:00 AM - 11:00 AM", available: 15, status: "fast" },
-    { time: "12:00 PM - 01:00 PM", available: 0, status: "full" },
-    { time: "02:00 PM - 03:00 PM", available: 240, status: "open" },
-    { time: "04:00 PM - 05:00 PM", available: 80, status: "filling" },
-    { time: "06:00 PM - 07:00 PM", available: 5, status: "fast" }
+    { time: "08:00 AM - 09:00 AM", available: 100, status: "open" },
+    { time: "10:00 AM - 11:00 AM", available: 100, status: "open" },
+    { time: "12:00 PM - 01:00 PM", available: 100, status: "open" },
+    { time: "06:00 PM - 07:00 PM", available: 100, status: "open" }
   ];
 
   const handleAddPilgrim = () => {
@@ -83,7 +81,7 @@ export default function DarshanBooking({ onBookingSuccess }: DarshanBookingProps
     const txnId = `TXN-${Math.floor(100000000 + Math.random() * 900000000)}`;
     setGeneratedTransactionId(txnId);
     setPaymentStep(true);
-    
+
     // Auto-show UPI gateway if UPI is selected
     if (paymentMethod === 'upi') {
       setShowUPIGateway(true);
@@ -209,9 +207,8 @@ export default function DarshanBooking({ onBookingSuccess }: DarshanBookingProps
                       onChange={(e: any) => setEntryType(e.target.value)}
                       className="w-full bg-orange-50/20 border border-[#e7e5e4] text-stone-900 text-xs rounded-xl focus:ring-[#b45309] focus:border-[#b45309] block p-3 outline-none"
                     >
-                      <option value="Special Entry">Special Entry (Rs. 300)</option>
-                      <option value="General Entry">General Entry (Free)</option>
-                      <option value="Senior Citizen">Senior / Physically Challenged (Free)</option>
+                      <option value="Special Entry">Special Entry (Rs. 100)</option>
+
                     </select>
                   </div>
                 </div>
@@ -230,21 +227,19 @@ export default function DarshanBooking({ onBookingSuccess }: DarshanBookingProps
                         key={slot.time}
                         type="button"
                         onClick={() => !isFull && setSelectedSlot(slot.time)}
-                        className={`p-3 rounded-xl border text-left flex flex-col justify-between transition-all ${
-                          isFull
-                            ? "bg-rose-50/50 border-rose-100 cursor-not-allowed opacity-60"
-                            : isSelected
+                        className={`p-3 rounded-xl border text-left flex flex-col justify-between transition-all ${isFull
+                          ? "bg-rose-50/50 border-rose-100 cursor-not-allowed opacity-60"
+                          : isSelected
                             ? "bg-orange-50 border-[#b45309] ring-2 ring-[#b45309]/10"
                             : "bg-white border-[#e7e5e4] hover:border-stone-300"
-                        }`}
+                          }`}
                       >
                         <span className={`text-xs font-semibold ${isSelected ? "text-[#78350f]" : "text-stone-800"}`}>
                           {slot.time}
                         </span>
                         <div className="flex items-center justify-between w-full mt-1.5">
-                          <span className={`text-[10px] font-medium font-mono ${
-                            isFull ? "text-rose-600 font-bold" : slot.available < 20 ? "text-amber-600 font-semibold" : "text-emerald-700"
-                          }`}>
+                          <span className={`text-[10px] font-medium font-mono ${isFull ? "text-rose-600 font-bold" : slot.available < 20 ? "text-amber-600 font-semibold" : "text-emerald-700"
+                            }`}>
                             {isFull ? "FULL" : `${slot.available} left`}
                           </span>
                           {isSelected && <Check className="w-3.5 h-3.5 text-[#b45309]" />}
@@ -351,9 +346,7 @@ export default function DarshanBooking({ onBookingSuccess }: DarshanBookingProps
               <span className="text-lg font-mono font-bold text-saffron-700 ml-1">
                 Rs. {totalAmount}
               </span>
-              <span className="text-[10px] text-amber-600/80 block mt-0.5">
-                (Includes {pilgrims.length} Free Laddu Prasadam on Special Entry)
-              </span>
+
             </div>
             <button
               onClick={handleProceedToPayment}
@@ -397,33 +390,30 @@ export default function DarshanBooking({ onBookingSuccess }: DarshanBookingProps
                 <button
                   type="button"
                   onClick={() => setPaymentMethod('paytm')}
-                  className={`flex-1 p-3 rounded-xl border text-xs font-semibold flex items-center justify-center gap-2 transition-all ${
-                    paymentMethod === 'paytm'
-                      ? "bg-[#00baf2]/5 border-[#00baf2] text-[#002e6e] shadow-sm font-bold"
-                      : "bg-white border-amber-100 text-amber-800 hover:border-amber-200"
-                  }`}
+                  className={`flex-1 p-3 rounded-xl border text-xs font-semibold flex items-center justify-center gap-2 transition-all ${paymentMethod === 'paytm'
+                    ? "bg-[#00baf2]/5 border-[#00baf2] text-[#002e6e] shadow-sm font-bold"
+                    : "bg-white border-amber-100 text-amber-800 hover:border-amber-200"
+                    }`}
                 >
                   <span className="w-2 h-2 rounded-full bg-[#00baf2]"></span> Paytm App
                 </button>
                 <button
                   type="button"
                   onClick={() => setPaymentMethod('upi')}
-                  className={`flex-1 p-3 rounded-xl border text-xs font-semibold flex items-center justify-center gap-2 transition-all ${
-                    paymentMethod === 'upi'
-                      ? "bg-saffron-50 border-saffron-500 text-saffron-900 shadow-sm font-bold"
-                      : "bg-white border-amber-100 text-amber-800 hover:border-amber-200"
-                  }`}
+                  className={`flex-1 p-3 rounded-xl border text-xs font-semibold flex items-center justify-center gap-2 transition-all ${paymentMethod === 'upi'
+                    ? "bg-saffron-50 border-saffron-500 text-saffron-900 shadow-sm font-bold"
+                    : "bg-white border-amber-100 text-amber-800 hover:border-amber-200"
+                    }`}
                 >
                   <Sparkles className="w-4 h-4 text-saffron-500" /> BHIM UPI / QR Scan
                 </button>
                 <button
                   type="button"
                   onClick={() => setPaymentMethod('card')}
-                  className={`flex-1 p-3 rounded-xl border text-xs font-semibold flex items-center justify-center gap-2 transition-all ${
-                    paymentMethod === 'card'
-                      ? "bg-saffron-50 border-saffron-500 text-saffron-900 shadow-sm font-bold"
-                      : "bg-white border-amber-100 text-amber-800 hover:border-amber-200"
-                  }`}
+                  className={`flex-1 p-3 rounded-xl border text-xs font-semibold flex items-center justify-center gap-2 transition-all ${paymentMethod === 'card'
+                    ? "bg-saffron-50 border-saffron-500 text-saffron-900 shadow-sm font-bold"
+                    : "bg-white border-amber-100 text-amber-800 hover:border-amber-200"
+                    }`}
                 >
                   <CreditCard className="w-4 h-4 text-saffron-500" /> Debit/Credit Card
                 </button>

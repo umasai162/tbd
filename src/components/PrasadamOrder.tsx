@@ -11,8 +11,6 @@ interface PrasadamOrderProps {
 export default function PrasadamOrder({ onBookingSuccess }: PrasadamOrderProps) {
   const [quantities, setQuantities] = useState<Record<string, number>>({
     "Srivari Big Laddu (Kalyana Laddu)": 0,
-    "Srivari Small Laddu (Proktam Laddu)": 2,
-    "Srivari Vada": 0,
     "Pulihora (Tamarind Rice Pod)": 0
   });
 
@@ -32,28 +30,14 @@ export default function PrasadamOrder({ onBookingSuccess }: PrasadamOrderProps) 
     {
       name: "Srivari Big Laddu (Kalyana Laddu)",
       price: 50,
-      weight: "200 grams",
+      weight: "1 packet (200 grams)",
       desc: "Delicious holy dessert of besan flour, sugar, pure ghee, cashew, raisins, and camphor.",
-      img: "https://images.unsplash.com/photo-1587314168485-3236d6710814?q=80&w=200&auto=format&fit=crop" // Beautiful indian dessert placeholder
-    },
-    {
-      name: "Srivari Small Laddu (Proktam Laddu)",
-      price: 20,
-      weight: "80 grams",
-      desc: "Traditional daily offering given to all pilgrims during visit.",
       img: "https://images.unsplash.com/photo-1587314168485-3236d6710814?q=80&w=200&auto=format&fit=crop"
     },
     {
-      name: "Srivari Vada",
-      price: 25,
-      weight: "100 grams",
-      desc: "Deep-fried black gram lentil savory offering prepared in temple kitchen.",
-      img: "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?q=80&w=200&auto=format&fit=crop" // Vada/Samosa visual placeholder
-    },
-    {
       name: "Pulihora (Tamarind Rice Pod)",
-      price: 15,
-      weight: "150 grams",
+      price: 20,
+      weight: "1 packet (150 grams)",
       desc: "Aromatic spicy-sour tamarind rice offering with peanuts, mustard, and curry leaves.",
       img: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?q=80&w=200&auto=format&fit=crop"
     }

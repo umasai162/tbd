@@ -1,4 +1,5 @@
-import { Compass, Calendar, BookOpen, Hotel, HeartHandshake, ShoppingBag, Search, ShieldCheck, Image } from "lucide-react";
+import React from "react";
+import { Compass, Calendar, BookOpen, HeartHandshake, ShoppingBag, Search, Image } from "lucide-react";
 
 interface NavbarProps {
   activeTab: string;
@@ -16,6 +17,22 @@ export default function Navbar({ activeTab, setActiveTab, liveStats }: NavbarPro
     { id: "gallery", label: "Divine Gallery", icon: Image },
     { id: "check", label: "Verify Ticket", icon: Search }
   ];
+
+  const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectEl = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+    if (selectEl) {
+      selectEl.value = e.target.value;
+      selectEl.dispatchEvent(new Event('change'));
+    } else {
+      // Fallback: reload with google translate hash
+      const lang = e.target.value;
+      if (lang === 'en') {
+        window.location.href = window.location.href.replace(/#googtrans\([^)]*\)/, '') + '#googtrans(en|en)';
+      } else {
+        window.location.href = window.location.href.replace(/#googtrans\([^)]*\)/, '') + `#googtrans(en|${lang})`;
+      }
+    }
+  };
 
   return (
     <header className="w-full bg-[#fffbeb] border-b border-[#e7e5e4] backdrop-blur-md sticky top-0 z-40">
@@ -47,11 +64,22 @@ export default function Navbar({ activeTab, setActiveTab, liveStats }: NavbarPro
               <p className="font-bold text-[#78350f] text-sm sm:text-base leading-tight" style={{ fontFamily: 'serif' }}>
                 శ్రీ తిరుమల బాలాజీ దివ్యక్షేత్రం
               </p>
-
             </div>
           </div>
 
-
+          {/* Language Selector Dropdown */}
+          <div className="flex items-center gap-2 ml-auto">
+            <span className="text-[10px] uppercase font-bold text-[#78350f] tracking-wider hidden md:inline">🌐</span>
+            <select
+              onChange={handleLanguageChange}
+              defaultValue="en"
+              className="bg-orange-50/50 border border-orange-200 text-[#78350f] text-xs rounded-xl px-3 py-2 font-bold outline-none cursor-pointer focus:ring-1 focus:ring-[#b45309]"
+            >
+              <option value="en">English</option>
+              <option value="te">తెలుగు</option>
+              <option value="hi">हिन्दी</option>
+            </select>
+          </div>
         </div>
 
         {/* Tab-based Main Navigation (desktop only — mobile uses bottom nav) */}

@@ -409,7 +409,7 @@ export default function DonationSection() {
       ) : (
         <>
           <div className="bg-emerald-50 border border-emerald-200 p-4 rounded-xl text-emerald-800 text-xs flex items-center gap-2.5">
-            <Check className="w-5 h-5 bg-emerald-505 text-emerald-500 rounded-full" />
+            <Check className="w-5 h-5 bg-emerald-50 p-0.5 text-emerald-500 rounded-full" />
             <div>
               <p className="font-semibold">Sponsorship Successfully Received!</p>
               <p className="text-[11px]">Thank you for your generous contribution. A receipt has been generated below.</p>

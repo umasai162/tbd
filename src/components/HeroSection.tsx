@@ -3,13 +3,13 @@ import { Calendar, BookOpen, HeartHandshake, ShoppingBag, Search, Sparkles, Sun,
 
 // Weekly Darshan Schedule
 const weeklySchedule: Record<string, { title: string; time?: string; description: string; badge: string; badgeColor: string }> = {
-  Monday:    { title: "Normal Darshanam",       description: "Regular darshan open for all pilgrims throughout the day.",                          badge: "Open All Day",   badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-200" },
-  Tuesday:   { title: "Normal Darshanam",       description: "Regular darshan open for all pilgrims throughout the day.",                          badge: "Open All Day",   badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-200" },
-  Wednesday: { title: "Normal Darshanam",       description: "Regular darshan open for all pilgrims throughout the day.",                          badge: "Open All Day",   badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-200" },
-  Thursday:  { title: "Nijarupa Darshanam",     description: "Special Nijarupa Darshanam — Lord Venkateswara in his original divine form.",        badge: "Special Seva",   badgeColor: "bg-amber-100 text-amber-800 border-amber-200" },
-  Friday:    { title: "Suprabhatam Seva",       time: "4:00 AM", description: "Sacred early morning Suprabhatam — divine awakening of Lord Venkateswara.",  badge: "4:00 AM Start",  badgeColor: "bg-orange-100 text-orange-800 border-orange-200" },
-  Saturday:  { title: "Nitya Annaprasadam Seva", time: "Afternoon: 11:30 AM - 3:00 PM | Night: 6:30 PM - 9:30 PM", description: "Sacred distribution of free holy meals (Annaprasadam) to all visiting devotees.", badge: "Annaprasadam", badgeColor: "bg-amber-100 text-amber-800 border-amber-200" },
-  Sunday:    { title: "Normal Darshanam",       description: "Regular darshan open for all pilgrims. Expect heavy crowds on weekends.",             badge: "Open All Day",   badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-200" },
+  Monday: { title: "Normal Darshanam", description: "Regular darshan open for all pilgrims throughout the day.", badge: "Open All Day", badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-200" },
+  Tuesday: { title: "Normal Darshanam", description: "Regular darshan open for all pilgrims throughout the day.", badge: "Open All Day", badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-200" },
+  Wednesday: { title: "Normal Darshanam", description: "Regular darshan open for all pilgrims throughout the day.", badge: "Open All Day", badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-200" },
+  Thursday: { title: "Nijarupa Darshanam", description: "Special Nijarupa Darshanam — Lord Venkateswara in his original divine form.", badge: "Special Seva", badgeColor: "bg-amber-100 text-amber-800 border-amber-200" },
+  Friday: { title: "Suprabhatam Seva", time: "4:00 AM", description: "Sacred early morning Suprabhatam — divine awakening of Lord Venkateswara.", badge: "4:00 AM Start", badgeColor: "bg-orange-100 text-orange-800 border-orange-200" },
+  Saturday: { title: "Nitya Annaprasadam Seva", time: "Afternoon: 11:30 AM - 3:00 PM | Night: 6:30 PM - 9:30 PM", description: "Sacred distribution of free holy meals (Annaprasadam) to all visiting devotees.", badge: "Annaprasadam", badgeColor: "bg-amber-100 text-amber-800 border-amber-200" },
+  Sunday: { title: "Normal Darshanam", description: "Regular darshan open for all pilgrims. Expect heavy crowds on weekends.", badge: "Open All Day", badgeColor: "bg-emerald-100 text-emerald-800 border-emerald-200" },
 };
 
 interface HeroSectionProps {
@@ -25,7 +25,7 @@ export default function HeroSection({ onNavigate, liveStats }: HeroSectionProps)
       title: "Sri Venkateswara Swamy Temple",
       subtitle: "The Sacred Abode on Seven Hills (Tirumala)",
       desc: "Experience divine light at the world's most-visited holy shrine, nested in the tranquil Seshachalam range of Chittoor Hills.",
-      img: "https://lh3.googleusercontent.com/gps-cs-s/AHRPTWk3dktjLv8vlCzQQfJ8BQ_U5kQK65J_AbO18JNeivtsTKpUFD4UiF39uHr4M1JCB0ava57sBxaoeRXN8XyB0DcdSql-DBpbDcLdf0lZWN-bek6KOvDfR8n5anuKXyOo0th0RG-V=s1600"
+      img: "/gallery/photo8.jpg"
     },
     {
       title: "Sri Bhramaramba Mallikarjuna Temple",
@@ -158,20 +158,18 @@ export default function HeroSection({ onNavigate, liveStats }: HeroSectionProps)
                     return (
                       <div
                         key={day}
-                        className={`flex flex-col items-center px-2 py-2 rounded-xl border transition-all ${
-                          isToday
+                        className={`flex flex-col items-center px-2 py-2 rounded-xl border transition-all ${isToday
                             ? "bg-[#b45309] border-[#78350f] shadow-md scale-105"
                             : isSpecial
-                            ? "bg-amber-50 border-amber-200"
-                            : "bg-stone-50 border-stone-100"
-                        }`}
+                              ? "bg-amber-50 border-amber-200"
+                              : "bg-stone-50 border-stone-100"
+                          }`}
                       >
                         <span className={`text-[9px] font-bold ${isToday ? "text-orange-200" : "text-stone-400"}`}>
                           {day.slice(0, 3).toUpperCase()}
                         </span>
-                        <span className={`mt-1 text-[8px] font-semibold text-center leading-tight w-8 ${
-                          isToday ? "text-white" : isSpecial ? "text-amber-700" : "text-stone-600"
-                        }`}>
+                        <span className={`mt-1 text-[8px] font-semibold text-center leading-tight w-8 ${isToday ? "text-white" : isSpecial ? "text-amber-700" : "text-stone-600"
+                          }`}>
                           {s.title.split(" ")[0]}
                         </span>
                         {s.time && (

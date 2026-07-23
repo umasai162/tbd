@@ -429,7 +429,7 @@ class DatabaseManager {
 }
 
 const dbManager = new DatabaseManager();
-dbManager.init();
+// dbManager.init() will be called and awaited inside startServer() to guarantee database is ready before accepting requests
 
 // Helpers for Temple Panchangam generator based on date
 function getPanchangam(dateStr: string) {

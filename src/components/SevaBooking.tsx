@@ -195,7 +195,7 @@ export default function SevaBooking({ onBookingSuccess }: SevaBookingProps) {
       {!paymentStep ? (
         <>
           <div className="border-b border-[#e7e5e4] pb-4 mb-5">
-            <span className="text-[10px] uppercase font-bold text-[#b45309] tracking-wider font-cinzel">Srava Pooja</span>
+            <span className="text-[10px] uppercase font-bold text-[#b45309] tracking-wider font-cinzel">Seva Pooja</span>
             <h2 className="text-xl font-cinzel font-bold text-stone-900">
               Book Holy Sevas & Rituals
             </h2>
