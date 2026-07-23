@@ -19,19 +19,23 @@ export default function Navbar({ activeTab, setActiveTab, liveStats }: NavbarPro
   ];
 
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectEl = document.querySelector('.goog-te-combo') as HTMLSelectElement;
-    if (selectEl) {
-      selectEl.value = e.target.value;
-      selectEl.dispatchEvent(new Event('change'));
+    const lang = e.target.value;
+    if (lang === "en") {
+      // Reset to English by clearing the googtrans cookie
+      document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + window.location.hostname;
     } else {
-      // Fallback: reload with google translate hash
-      const lang = e.target.value;
-      if (lang === 'en') {
-        window.location.href = window.location.href.replace(/#googtrans\([^)]*\)/, '') + '#googtrans(en|en)';
-      } else {
-        window.location.href = window.location.href.replace(/#googtrans\([^)]*\)/, '') + `#googtrans(en|${lang})`;
-      }
+      // Set Google Translate cookie to the selected language
+      document.cookie = `googtrans=/en/${lang}; path=/`;
+      document.cookie = `googtrans=/en/${lang}; path=/; domain=${window.location.hostname}`;
     }
+    window.location.reload();
+  };
+
+  // Read the current active language from the googtrans cookie
+  const getCurrentLang = (): string => {
+    const match = document.cookie.match(/googtrans=\/en\/([a-z]+)/);
+    return match ? match[1] : "en";
   };
 
   return (
@@ -72,12 +76,12 @@ export default function Navbar({ activeTab, setActiveTab, liveStats }: NavbarPro
             <span className="text-[10px] uppercase font-bold text-[#78350f] tracking-wider hidden md:inline">🌐</span>
             <select
               onChange={handleLanguageChange}
-              defaultValue="en"
+              value={getCurrentLang()}
               className="bg-orange-50/50 border border-orange-200 text-[#78350f] text-xs rounded-xl px-3 py-2 font-bold outline-none cursor-pointer focus:ring-1 focus:ring-[#b45309]"
             >
-              <option value="en">English</option>
-              <option value="te">తెలుగు</option>
-              <option value="hi">हिन्दी</option>
+              <option value="en">🇮🇳 English</option>
+              <option value="te">🌸 తెలుగు</option>
+              <option value="hi">🕉 हिन्दी</option>
             </select>
           </div>
         </div>
